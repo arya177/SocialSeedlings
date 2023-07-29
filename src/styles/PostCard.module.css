@@ -1,0 +1,103 @@
+.container {
+    display: flex;
+    justify-content: center;
+    margin: 3% 1%;
+    height: fit-content;
+    
+}
+
+.left{
+  width: 20%;
+  height: fit-content;  
+    
+}
+.right{
+    width: 80%;
+    height: fit-content;
+}
+/* styles/UserProfile.module.css */
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profileImage {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Use border-radius to create a circular shape */
+    object-fit: cover;
+    border: 2px solid #fff; /* Optional: Add a border to the circular image */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow effect */
+  }
+  
+  .profileName {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .line{
+    width: 90%;
+    height: 0;
+    border: 1px solid lightgrey;
+  }
+  
+  .postImage{
+    width: 90%;
+    height: 50%;
+    object-fit: cover;
+    border: 2px solid #fff; /* Optional: Add a border to the circular image */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .post{
+    margin-top: 2%;
+  }
+  .user{
+    margin-bottom: 2%;
+    margin-left: 1%;
+  }
+  .heartIcon {
+    cursor: pointer;
+    margin-top: 2%;
+    margin-left: 1%;
+  }
+  
+  .hicon {
+    width: 30px;
+    height: 30px;
+    fill: #ccc; /* Default color for the heart icon */
+    transition: fill 0.2s ease;
+  }
+  .cicon {
+    width: 28px;
+    height: 28px;
+    fill: #ccc; /* Default color for the heart icon */
+    transition: fill 0.2s ease;
+    margin-top: 10px;
+    margin-left: 5px;
+
+  }
+  .liked {
+    fill: red; /* Red color for the heart icon when liked */
+  }
+  /* .postIcons {
+    display: 'flex';
+  } */
+  .postLike {
+    margin-left: 2%;
+    color: grey;
+  }
+  .description{
+    margin-left: 2%;
+    margin-top: 1%
+  }
+  .commentIcon {
+    cursor: pointer;
+  }
+  
+  .commented {
+    fill: #039be5; /* Blue color for the comment icon when commented */
+  }
