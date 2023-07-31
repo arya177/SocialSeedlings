@@ -3,22 +3,26 @@ import styles from '../styles/login.module.css';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '@/firebase/firebaseConfig';
 import { useRouter } from 'next/router';
-
+import { ACCESS_KEY } from '@/utils/constants';
+import {fetchAccessToken} from '../pages/api/users'
+import { useDispatch, useSelector } from 'react-redux';
 
 const LoginForm = () => {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch()
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Implement your login logic here, such as API calls and form validation
-    // You can use state management libraries like Redux or Next.js built-in useState for managing the form data
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        router.push('/feeds');
+        router.push(`https://unsplash.com/oauth/authorize?client_id=${ACCESS_KEY}&redirect_uri=http://localhost:3000/feeds&response_type=code&scope=public+read_user+write_user`)
+        
+        
+
         // ...
       })
       .catch((error) => {

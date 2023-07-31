@@ -1,0 +1,98 @@
+/* Default styles for all screen sizes */
+.container {
+  margin-top: 30px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profileImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profileName {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.userStats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.userAction {
+  padding: 10px 20px;
+  margin: 5px;
+}
+
+.userActions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 950px) {
+  .profileImage {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .profileName {
+    font-size: 14px;
+  }
+
+  .userAction {
+    padding: 8px 16px;
+    margin: 3px;
+  }
+
+  .userActions {
+    flex-wrap: wrap;
+    justify-content: center; /* Center the wrapped actions */
+  }
+}
+
+@media (max-width: 850px) {
+  .userInfo {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .userStats {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 768px) {
+  .profileName {
+    font-size: 12px;
+  }
+}
