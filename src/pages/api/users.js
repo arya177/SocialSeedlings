@@ -1,7 +1,7 @@
 // userActions.js
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ACCESS_KEY, SECRET_KEY, REDIRECT_URI } from '../../utils/constants';
+import { REDIRECT_URI } from '../../utils/constants';
 
 // Fetch the access token using createAsyncThunk
 export const fetchAccessToken = createAsyncThunk(
@@ -10,13 +10,12 @@ export const fetchAccessToken = createAsyncThunk(
     console.log(code)
 
     try {
-      console.log("hi")
       const response = await fetch('https://unsplash.com/oauth/token', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: `client_id=${ACCESS_KEY}&client_secret=${SECRET_KEY}&redirect_uri=${REDIRECT_URI}&code=${code}&grant_type=authorization_code`,
+        body: `client_id=${process.env.ACCESS_KEY}&client_secret=${process.env.SECRET_KEY}&redirect_uri=${REDIRECT_URI}&code=${code}&grant_type=authorization_code`,
       });
 
       if (!response.ok) {
@@ -64,7 +63,7 @@ export const fetchAndStoreUserPhotos = createAsyncThunk(
     try {
       const response = await fetch(`https://api.unsplash.com/users/${username}/photos`, {
         headers: {
-          Authorization: `Client-ID ${ACCESS_KEY}`,
+          Authorization: `Client-ID ${process.env.ACCESS_KEY}`,
         },
       });
 

@@ -1,8 +1,6 @@
 // actions/photoActions.js
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ACCESS_KEY } from '@/utils/constants';
-
 // actions/photoActions.js
 
 
@@ -12,7 +10,7 @@ const fetchRandomPhotosFromAPI = async () => {
   const response = await fetch('https://api.unsplash.com/photos/random?count=10', {
     method: 'GET',
     headers: {
-      Authorization: `Client-ID ${ACCESS_KEY}`,
+      Authorization: `Client-ID ${process.env.ACCESS_KEY}`,
     },
   });
 
@@ -71,7 +69,7 @@ const fetchUserProfileImage = async (username) => {
     const userResponse = await fetch(`https://api.unsplash.com/users/${username}`, {
       method: 'GET',
       headers: {
-        Authorization: `Client-ID ${ACCESS_KEY}`,
+        Authorization: `Client-ID ${process.env.ACCESS_KEY}`,
       },
     });
 
