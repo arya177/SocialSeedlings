@@ -2,15 +2,15 @@ import React from 'react'
 import {useState,useEffect} from 'react'
 import { useRouter } from 'next/router';
 
-const Card = ({photo,userProfileImageUrl}) => {
+const Card = ({username,name,post,description,userProfileImageUrl}) => {
     const router  = useRouter()
     const [isLiked, setIsLiked] = useState(false);
     const handleLikeClick = () => {
       setIsLiked(!isLiked);
     };
     useEffect(()=>{
-        console.log(photo, userProfileImageUrl)
-        console.log(photo?.user.username, photo?.user.name, photo?.likes, photo?.description)},[])
+        console.log(username, name, post, description, userProfileImageUrl)
+    },[])
     const [isCommented, setIsCommented] = useState(false);
     const handleCommentClick = () => {
         setIsCommented(!isCommented);
@@ -18,7 +18,7 @@ const Card = ({photo,userProfileImageUrl}) => {
 
 
     const handleProfileClick = () => {
-        router.push(`/users/${photo.user.username}`)
+        router.push(`/users/${username}`)
     }
 
     return (
@@ -29,16 +29,16 @@ const Card = ({photo,userProfileImageUrl}) => {
                         <img style={{width: '3.5rem', height:'3.5rem', borderRadius: '50%', objectFit: 'cover', border: '2px solid white', boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)'}} src={userProfileImageUrl} alt='photo' />
                     </div>
                     <div style={{display:'flex', flexDirection: 'column', justifyContent: 'center', marginLeft: '0.75rem'}}>
-                        <p style={{fontSize: '15px', color: 'grey', lineHeight:'1', margin: '3px', padding: '0'}}>{photo?.user?.username}</p>
-                        <p style={{fontSize: '20px', lineHeight:'1', margin: '3px', padding: '0'}}>{photo?.user?.name}</p>
+                        <p style={{fontSize: '15px', color: 'grey', lineHeight:'1', margin: '3px', padding: '0'}}>{username}</p>
+                        <p style={{fontSize: '20px', lineHeight:'1', margin: '3px', padding: '0'}}>{name}</p>
                        
                     </div>
                 </div>
                 <div style={{marginTop: '1rem'}}>
-                    {photo?.description}
+                    {description}
                 </div>
                 <div style={{marginTop: '1rem', width: '100%'}}>
-                    <img style={{width: 'inherit', height:'30rem', borderRadius: '1.5rem', objectFit: 'cover', border: '2px solid white', boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)'}} src={photo?.urls?.regular} alt='photo' />
+                    <img style={{width: 'inherit', height:'30rem', borderRadius: '1.5rem', objectFit: 'cover', border: '2px solid white', boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)'}} src={post} alt='photo' />
                 </div>
                 <div style={{display: 'flex', alignItems: 'center', padding: '3px'}}>
                     <div style={{cursor: 'pointer', marginTop: '2%', marginLeft: '1%'}}>

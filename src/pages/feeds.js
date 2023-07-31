@@ -50,8 +50,11 @@ const FeedPage = () => {
               randomPhotos.map((photoData) => (
                 <Card
                  // Add a unique key to each PostCard
-                  photo={photoData.photo}
-                  userProfileImageUrl={photoData.userProfileImageUrl}
+                  username={photoData?.user?.username}
+                  name={photoData?.user?.name}
+                  post={photoData?.urls?.regular}
+                  description={photoData?.description}
+                  userProfileImageUrl={photoData?.userProfileImageUrl}
                 />
               ))
             ) : (

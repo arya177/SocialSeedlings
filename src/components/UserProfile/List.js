@@ -1,4 +1,6 @@
 // components/PostItem.js
+import Card from "../FeedComponents/Card";
+
 const List = () => {
     // pages/data/posts.js
 const posts = [
@@ -22,14 +24,7 @@ const posts = [
   return (
     <div className="feed">
       {posts.map((post) => (
-        <div className="post-item">
-        <img src={post.imageUrl} alt={post.caption} />
-        <div className="post-info">
-          <span>Likes: {post.likes}</span>
-          <span>Comments: {post.comments}</span>
-          <p>{post.caption}</p>
-        </div>
-      </div>
+        <Card/>
       ))}
     </div>
   );
