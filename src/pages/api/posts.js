@@ -10,7 +10,7 @@ const fetchRandomPhotosFromAPI = async () => {
   const response = await fetch('https://api.unsplash.com/photos/random?count=10', {
     method: 'GET',
     headers: {
-      Authorization: `Client-ID ${process.env.ACCESS_KEY}`,
+      Authorization: `Client-ID ${process.env.NEXT_PUBLIC_ACCESS_KEY}`,
     },
   });
 
@@ -69,7 +69,7 @@ const fetchUserProfileImage = async (username) => {
     const userResponse = await fetch(`https://api.unsplash.com/users/${username}`, {
       method: 'GET',
       headers: {
-        Authorization: `Client-ID ${process.env.ACCESS_KEY}`,
+        Authorization: `Client-ID ${process.env.NEXT_PUBLIC_ACCESS_KEY}`,
       },
     });
 

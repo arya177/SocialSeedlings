@@ -3,7 +3,6 @@ import styles from '../styles/login.module.css';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '@/firebase/firebaseConfig';
 import { useRouter } from 'next/router';
-import { ACCESS_KEY } from '@/utils/constants';
 import {fetchAccessToken} from '../pages/api/users'
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -19,7 +18,7 @@ const LoginForm = () => {
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        router.push(`https://unsplash.com/oauth/authorize?client_id=${ACCESS_KEY}&redirect_uri=http://localhost:3000/feeds&response_type=code&scope=public+read_user+write_user`)
+        router.push(`https://unsplash.com/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_ACCESS_KEY}&redirect_uri=http://localhost:3000/feeds&response_type=code&scope=public+read_user+write_user`)
         
         
 

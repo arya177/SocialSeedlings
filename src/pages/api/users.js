@@ -15,7 +15,7 @@ export const fetchAccessToken = createAsyncThunk(
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: `client_id=${process.env.ACCESS_KEY}&client_secret=${process.env.SECRET_KEY}&redirect_uri=${REDIRECT_URI}&code=${code}&grant_type=authorization_code`,
+        body: `client_id=${process.env.NEXT_PUBLIC_ACCESS_KEY}&client_secret=${process.env.NEXT_PUBLIC_SECRET_KEY}&redirect_uri=${REDIRECT_URI}&code=${code}&grant_type=authorization_code`,
       });
 
       if (!response.ok) {
@@ -63,7 +63,7 @@ export const fetchAndStoreUserPhotos = createAsyncThunk(
     try {
       const response = await fetch(`https://api.unsplash.com/users/${username}/photos`, {
         headers: {
-          Authorization: `Client-ID ${process.env.ACCESS_KEY}`,
+          Authorization: `Client-ID ${process.env.NEXT_PUBLIC_ACCESS_KEY}`,
         },
       });
 
