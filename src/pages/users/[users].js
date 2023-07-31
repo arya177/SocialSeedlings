@@ -19,7 +19,7 @@ const User = () => {
         <Navbar/>
         <div><UserInfo /></div>
         <div className={styles.division}></div>
-        <div><UserPosts/></div>
+        <div><UserPosts username={users}/></div>
       </div>
     );
   };

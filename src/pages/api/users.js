@@ -72,14 +72,14 @@ export const fetchAndStoreUserPhotos = createAsyncThunk(
       }
 
       const data = await response.json();
-      const userPhotos = data.map((photo) => ({
-        id: photo.id,
-        title: photo.title,
-        imageUrl: photo.imageUrl,
-      }));
-      localStorage.setItem('userPhotos', JSON.stringify(userPhotos));
+      // const userPhotos = data.map((photo) => ({
+      //   id: photo.id,
+      //   title: photo.title,
+      //   imageUrl: photo.imageUrl,
+      // }));
+      localStorage.setItem('userPhotos', JSON.stringify(data));
 
-      return userPhotos;
+      return data;
     } catch (error) {
       console.error('Error fetching user photos:', error);
       throw error; // Rethrow the error to let createAsyncThunk handle it
