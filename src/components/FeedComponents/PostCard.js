@@ -1,8 +1,10 @@
 import Head from 'next/head';
 import {useState,useEffect} from 'react'
 import styles from '../../styles/PostCard.module.css'
+import { useRouter } from 'next/router';
 
 const PostCard = ({photo,userProfileImageUrl}) => {
+    const router  = useRouter()
     const [isLiked, setIsLiked] = useState(false);
     const handleLikeClick = () => {
       setIsLiked(!isLiked);
@@ -14,10 +16,16 @@ const PostCard = ({photo,userProfileImageUrl}) => {
     const handleCommentClick = () => {
         setIsCommented(!isCommented);
     };
+
+
+    const handleProfileClick = () => {
+        router.push(`/users/${photo.user.username}`)
+    }
+
     return (
     <div className={styles.container}>
         <div className={styles.left}>
-            <div className={styles.profile}>
+            <div className={styles.profile} onClick={handleProfileClick}>
                 <img className={styles.profileImage} src={userProfileImageUrl} alt='photo' />
                 <div className={styles.profileName}>{photo?.user?.username}</div>
             </div>

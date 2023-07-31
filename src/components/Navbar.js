@@ -14,6 +14,7 @@ export default function Navbar() {
   const handleLogout = () => {
     signOut(auth).then(() => {
         // Sign-out successful.
+        localStorage.clear();
         router.push('/login')
     }).catch((error) => {
         // An error happened.

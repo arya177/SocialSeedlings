@@ -52,7 +52,7 @@ export const fetchRandomPhotos = createAsyncThunk(
       }
 
       // If data is not available in the Redux store or local storage, fetch from API
-      // const data = await fetchRandomPhotosFromAPI();
+      const data = await fetchRandomPhotosFromAPI();
 
       // Save the fetched data in local storage for future use
       localStorage.setItem('randomPhotos', JSON.stringify(data));

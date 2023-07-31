@@ -17,7 +17,7 @@ const User = () => {
   return (
       <div className={styles.container}>
         <Navbar/>
-        <div><UserInfo /></div>
+        <div><UserInfo username={users}/></div>
         <div className={styles.division}></div>
         <div><UserPosts username={users}/></div>
       </div>

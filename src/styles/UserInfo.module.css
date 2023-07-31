@@ -3,6 +3,7 @@
     margin: 5%;
     align-items: center;
     justify-content: center;
+    width: '70%'
 }
 .profile {
     display: flex;
@@ -26,9 +27,16 @@
   }
   .profileInfo{
     margin-left: 5%;
+    margin-top: 2rem;
+    width: 60rem;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: flex-start;
   }
   .horizontal{
-    display: flex
+    display: flex;
+    
   }
   .userAction{
     margin-left: 20px;
@@ -40,14 +48,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: 8rem;
   }
   .userInfo {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    /* align-items: center; */
+    /* justify-content: center; */
     margin-top: 20px;
   }
   .bio{
+    display: flex;
+    align-items: center;
     margin-top: 15px;
-    font-size: 20px;
+    font-size: 22px;
+    
   }
+  

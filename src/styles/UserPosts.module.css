@@ -31,6 +31,10 @@
   display: flex;
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
-  width: 30px;
-  height: 30px;
+  width: 90px;
+  height: 90px;
+  /* vertical-align: middle; */
+}
+.icons svg {
+  margin: auto;
 }

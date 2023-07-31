@@ -2,6 +2,7 @@
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { REDIRECT_URI } from '../../utils/constants';
+import UserPosts from '@/components/UserProfile/UserPosts';
 
 // Fetch the access token using createAsyncThunk
 export const fetchAccessToken = createAsyncThunk(
@@ -60,6 +61,29 @@ export const fetchUserProfile = createAsyncThunk(
 export const fetchAndStoreUserPhotos = createAsyncThunk(
   'user/fetchAndStoreUserPhotos',
   async (username) => {
+    // Check if data already exists in local storage
+    const cachedData = localStorage.getItem('userPhotos');
+    const user = localStorage.getItem('userInfo')
+
+
+    console.log(cachedData)
+    console.log(user)
+    if(user){
+      const parseUser = JSON.parse(user);
+      console.log(localStorage)
+      console.log(parseUser.username)
+      let parsedData
+      if(cachedData){
+        parsedData = JSON.parse(cachedData);
+      }
+      if (parseUser.username===username && parsedData?.length>0) {
+        console.log(parsedData)
+        return parsedData;
+      }
+    }
+    
+    console.log("hi")
+    // If data doesn't exist in local storage, make the API call
     try {
       const response = await fetch(`https://api.unsplash.com/users/${username}/photos`, {
         headers: {
@@ -72,17 +96,51 @@ export const fetchAndStoreUserPhotos = createAsyncThunk(
       }
 
       const data = await response.json();
-      // const userPhotos = data.map((photo) => ({
-      //   id: photo.id,
-      //   title: photo.title,
-      //   imageUrl: photo.imageUrl,
-      // }));
+      // Store the fetched data in local storage
       localStorage.setItem('userPhotos', JSON.stringify(data));
-
+      console.log(data, localStorage.getItem('userPhotos'))
       return data;
     } catch (error) {
       console.error('Error fetching user photos:', error);
-      throw error; // Rethrow the error to let createAsyncThunk handle it
+      throw error;
+    }
+  }
+);
+
+export const fetchUserByUsername = createAsyncThunk(
+  'user/fetchUserByUsername',
+  async (username) => {
+
+    const cachedData = localStorage.getItem('userInfo');
+    if(cachedData){
+      const parsedData = JSON.parse(cachedData);
+      if (cachedData.username===username) {
+      
+        console.log(parsedData)
+        return parsedData;
+      }
+    }
+    
+    const url = `https://api.unsplash.com/users/${username}`;
+
+    try {
+      const response = await fetch(url, {
+        headers: {
+          Authorization: `Client-ID ${process.env.NEXT_PUBLIC_ACCESS_KEY}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch user data');
+      }
+
+      const data = await response.json();
+      localStorage.setItem('userInfo', JSON.stringify(data));
+      console.log(data);
+      console.log(localStorage.getItem('userInfo'))
+      return data;
+    } catch (error) {
+      throw error;
     }
   }
 );

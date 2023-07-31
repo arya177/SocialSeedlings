@@ -4,6 +4,7 @@ import Head from 'next/head';
 import LoginForm from '../components/LoginForm';
 import styles from '../styles/login.module.css';
 import Link from 'next/link';
+import Card from '@/components/FeedComponents/Card';
 
 const LoginPage = () => {
   return (
@@ -21,7 +22,7 @@ const LoginPage = () => {
 
       <footer className={styles.footer}>
         <p>Don't have an account?</p>
-        <Link href="/signup">
+        <Link href="/signup" style={{marginLeft: '0.2rem'}}> 
             Sign Up
         </Link>
       </footer>

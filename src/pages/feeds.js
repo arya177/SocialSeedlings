@@ -3,7 +3,7 @@ import Head from 'next/head';
 import styles from '../styles/feeds.module.css';
 import Link from 'next/link';
 import {ACCESS_KEY,API_URL} from '@/utils/constants'
-import PostCard from '@/components/FeedComponents/PostCard';
+import Card from '@/components/FeedComponents/Card';
 import FeedRightComponent from '@/components/FeedComponents/FeedRightComponent';
 import FeedLeftComponent from '@/components/FeedComponents/FeedLeftComponent';
 import { useDispatch, useSelector } from 'react-redux';
@@ -48,8 +48,8 @@ const FeedPage = () => {
           {randomPhotos.length>0 ? (
               // Render PostCard components when photos are available
               randomPhotos.map((photoData) => (
-                <PostCard
-                  key={photoData.photo.id} // Add a unique key to each PostCard
+                <Card
+                 // Add a unique key to each PostCard
                   photo={photoData.photo}
                   userProfileImageUrl={photoData.userProfileImageUrl}
                 />

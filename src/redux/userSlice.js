@@ -1,7 +1,5 @@
-// userSlice.js
-
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchUserProfile,fetchAndStoreUserPhotos } from '../pages/api/users';
+import { fetchUserProfile,fetchAndStoreUserPhotos,fetchUserByUsername } from '../pages/api/users';
 
 // userSlice.js
 const userSlice = createSlice({
@@ -10,6 +8,7 @@ const userSlice = createSlice({
     accessToken: null,
     profile: null,
     userPhotos: null,
+    userInfo: null
   },
   reducers: {
     setAccessToken: (state, action) => {
@@ -31,6 +30,9 @@ const userSlice = createSlice({
     });
     builder.addCase(fetchAndStoreUserPhotos.fulfilled, (state,action) => {
       state.userPhotos = action.payload;
+    })
+    builder.addCase(fetchUserByUsername.fulfilled, (state,action) => {
+      state.userInfo = action.payload;
     })
   },
 });

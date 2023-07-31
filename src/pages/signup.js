@@ -21,7 +21,7 @@ const SignupPage = () => {
 
       <footer className={styles.footer}>
         <p>Already have an account? </p>
-        <Link href="/login">
+        <Link href="/login" style={{marginLeft: '0.2rem'}}>
             Login
         </Link>
       </footer>
