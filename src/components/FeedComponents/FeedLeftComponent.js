@@ -39,7 +39,7 @@ const FeedLeftComponent = () => {
         </div>
         <div className={styles.userActions}>
           <button className={styles.userAction}>View Profile</button>
-          <button className={styles.userAction}>Edit Profile</button>
+          {/* <button className={styles.userAction}>Edit Profile</button> */}
         </div>
       </div>
     </div>

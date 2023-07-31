@@ -5,6 +5,7 @@ import LoginForm from '../components/LoginForm';
 import styles from '../styles/login.module.css';
 import Link from 'next/link';
 import Card from '@/components/FeedComponents/Card';
+import FeedLeftComponent from '@/components/FeedComponents/FeedLeftComponent';
 
 const LoginPage = () => {
   return (
