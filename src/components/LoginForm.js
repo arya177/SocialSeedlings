@@ -18,8 +18,8 @@ const LoginForm = () => {
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        router.push(`https://unsplash.com/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_ACCESS_KEY}&redirect_uri=http://localhost:3000/feeds&response_type=code&scope=public+read_user+write_user`)
-        // router.push(`https://unsplash.com/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_ACCESS_KEY}&redirect_uri=https://social-seedlings-two.vercel.app/feeds&response_type=code&scope=public+read_user+write_user`)
+        // router.push(`https://unsplash.com/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_ACCESS_KEY}&redirect_uri=http://localhost:3000/feeds&response_type=code&scope=public+read_user+write_user`)
+        router.push(`https://unsplash.com/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_ACCESS_KEY}&redirect_uri=https://social-seedlings-two.vercel.app/feeds&response_type=code&scope=public+read_user+write_user`)
         
 
         // ...
