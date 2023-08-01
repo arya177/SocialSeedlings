@@ -10,10 +10,11 @@ const FeedRightComponent = () => {
 
   useEffect(() => {
     // Call the action function to fetch random photos and user details
-    if (randomPhotos.length === 0) {
+    console.log(localStorage, typeof localStorage, localStorage.length)
+    // if (localStorage.length===0) {
       // Fetch photos only if they are not available in the Redux state
       dispatch(fetchRandomPhotos());
-    }
+    // }
   }, []);
   
   return (

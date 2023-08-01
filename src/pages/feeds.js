@@ -21,17 +21,19 @@ const FeedPage = () => {
 
   useEffect(() => {
     // Call the action function to fetch random photos and user details
-    if (randomPhotos.length === 0) {
+    console.log(localStorage, typeof localStorage, localStorage.length)
+    // if (localStorage.length===0) {
       // Fetch photos only if they are not available in the Redux state
+      
       dispatch(fetchRandomPhotos());
-    }
+    
   }, []);
-  
-  useEffect(() => {
-    // If the code is available, dispatch the action to fetch the access token
-    if (code) {
-      dispatch(fetchAccessToken(code));
-    }}, [code])
+  useEffect(() => {console.log(randomPhotos, randomPhotos[0]?.user?.username)},[])
+  // useEffect(() => {
+  //   // If the code is available, dispatch the action to fetch the access token
+  //   if (code) {
+  //     dispatch(fetchAccessToken(code));
+  //   }}, [code])
   return (
     <>
     <Navbar/>
@@ -50,10 +52,10 @@ const FeedPage = () => {
               randomPhotos.map((photoData) => (
                 <Card
                  // Add a unique key to each PostCard
-                  username={photoData?.user?.username}
-                  name={photoData?.user?.name}
-                  post={photoData?.urls?.regular}
-                  description={photoData?.description}
+                  username={photoData?.photo?.user?.username}
+                  name={photoData?.photo?.user?.name}
+                  post={photoData?.photo?.urls?.regular}
+                  description={photoData?.photo?.description}
                   userProfileImageUrl={photoData?.userProfileImageUrl}
                 />
               ))

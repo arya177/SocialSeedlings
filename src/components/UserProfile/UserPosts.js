@@ -11,9 +11,16 @@ const UserPosts = ({username}) => {
   const dispatch = useDispatch();
   const photos = useSelector((state) => state.user.userPhotos);
   const user = useSelector((state) => state.user.userInfo)
-  useEffect(()=>{dispatch(fetchAndStoreUserPhotos(username))},[])
-  useEffect(() => {dispatch(fetchUserByUsername(username))},[])
-
+  // if(username){
+  // useEffect(()=>{dispatch(fetchAndStoreUserPhotos(username))},[])
+  // useEffect(() => {dispatch(fetchUserByUsername(username))},[])
+  // }
+  useEffect(() => {
+    if(username){
+      dispatch(fetchAndStoreUserPhotos(username))
+      dispatch(fetchUserByUsername(username))
+    }
+  }, [username])
   useEffect(() => {if(photos?.length>0)console.log(photos, photos[0]?.urls?.small)}, [photos])
   const [grid, setGrid] = useState(true);
   const handleList = () => {console.log("hi")
@@ -41,10 +48,8 @@ const UserPosts = ({username}) => {
                   name={user?.name}
                   post={post?.urls?.regular}
                   description={post?.description}
-                  userProfileImageUrl={post?.profile_image.large}/>
-            // <div key={post.id} className={styles.post}>
-            //   <img className={styles.postImage} src={post?.urls?.regular} alt={`Post ${post.id}`} />
-            // </div>
+                  userProfileImageUrl={post?.profile_image?.large}/>
+          
           ))}
           </div>
       }

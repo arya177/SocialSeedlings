@@ -37,12 +37,12 @@ export const fetchRandomPhotos = createAsyncThunk(
     try {
       
       // Check if randomPhotos data is already available in the Redux store
-      const state = getState();
-      console.log(state.photo)
-      if (state?.photo?.randomPhotos.length > 0) {
-        console.log(state.photo.randomPhotos)
-        return state.photo.randomPhotos;
-      }
+      // const state = getState();
+      // console.log(state.photo)
+      // if (state?.photo?.randomPhotos.length > 0) {
+      //   console.log(state.photo.randomPhotos)
+      //   return state.photo.randomPhotos;
+      // }
 
       // Check if randomPhotos data is available in local storage
       const cachedRandomPhotos = JSON.parse(localStorage.getItem('randomPhotos') || '[]');

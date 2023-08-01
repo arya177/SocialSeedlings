@@ -64,24 +64,27 @@ export const fetchAndStoreUserPhotos = createAsyncThunk(
     // Check if data already exists in local storage
     const cachedData = localStorage.getItem('userPhotos');
     const user = localStorage.getItem('userInfo')
-
-
-    console.log(cachedData)
-    console.log(user)
-    if(user){
-      const parseUser = JSON.parse(user);
-      console.log(localStorage)
-      console.log(parseUser.username)
-      let parsedData
-      if(cachedData){
-        parsedData = JSON.parse(cachedData);
-      }
-      if (parseUser.username===username && parsedData?.length>0) {
-        console.log(parsedData)
-        return parsedData;
-      }
+    const parseUser = JSON.parse(user);
+    const parsedData = JSON.parse(cachedData);
+    // console.log(cachedData)
+    // console.log(user)
+    // if(user){
+    //   const parseUser = JSON.parse(user);
+    //   console.log(localStorage)
+    //   console.log(parseUser.username)
+    //   let parsedData
+    //   if(cachedData){
+    //     parsedData = JSON.parse(cachedData);
+    //   }
+    //   if (parseUser.username===username && parsedData?.length>0) {
+    //     console.log(parsedData)
+    //     return parsedData;
+    //   }
+    // }
+    if (parseUser && parseUser.username === username && parsedData?.length > 0) {
+      console.log(parsedData);
+      return parsedData;
     }
-    
     console.log("hi")
     // If data doesn't exist in local storage, make the API call
     try {

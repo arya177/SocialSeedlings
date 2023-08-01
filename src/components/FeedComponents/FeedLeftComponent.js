@@ -8,8 +8,8 @@ const FeedLeftComponent = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.profile);
   
-  useEffect(()=>{dispatch(fetchUserProfile())},[])
-  useEffect(()=>{console.log(user)},[user])
+  // useEffect(()=>{dispatch(fetchUserProfile())},[])
+  // useEffect(()=>{console.log(user)},[user])
   return (
     <div className={styles.container}>
       <div className={styles.profile}>

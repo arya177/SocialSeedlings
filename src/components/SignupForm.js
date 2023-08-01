@@ -4,11 +4,13 @@ import React, { useState } from 'react';
 import styles from '../styles/signup.module.css';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from '@/firebase/firebaseConfig';
+import { useRouter } from 'next/router';
 
 const SignupForm = () => {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const router = useRouter()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,6 +21,8 @@ const SignupForm = () => {
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
+    router.push('/login')
+
     // ...
   })
   .catch((error) => {
