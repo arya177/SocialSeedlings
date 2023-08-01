@@ -1,11 +1,40 @@
-.container{
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-.division{
-    width:70%;
+    justify-content: center;
+  }
+  
+  .division {
+    width: 70%;
     height: 0;
     border: 1px solid lightgrey;
-    margin: 2%
-}
+    margin: 2%;
+  }
+  
+  /* Responsive adjustments for smaller screens */
+  @media screen and (max-width: 768px) {
+    .container {
+      /* For smaller screens, change the flex-direction to column */
+      flex-direction: column;
+    }
+  
+    .division {
+      /* For smaller screens, reduce the width */
+      width: 90%;
+    }
+  }
+  
+  /* Additional responsive adjustments for even smaller screens */
+  @media screen and (max-width: 480px) {
+    .container {
+      /* For even smaller screens, adjust the alignment */
+      align-items: flex-start;
+    }
+  
+    .division {
+      /* For even smaller screens, increase the margin */
+      margin: 5%;
+    }
+  }
+  
